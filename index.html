@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cat Clicker</title>
+  </head>
+  <body>
+    <img id="catpic" src="kitty.jpg">
+      <h1><p id="nclk">0</p></h1> 
+  </body>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+        $('#catpic').click( ()=>{$('#nclk').text((i,t)=>parseInt(t) + 1)});
+    </script>
+</html>
