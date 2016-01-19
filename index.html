@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Cat Clicker</title>
-  </head>
-  <body>
-    <img id="catpic" src="kitty.jpg">
-      <h1><p id="nclk">0</p></h1> 
-  </body>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script>
-        $('#catpic').click( ()=>{$('#nclk').text((i,t)=>parseInt(t) + 1)});
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="cat">
+                    <img class="img img-responsive" src="kitty.jpg">
+                    <h1><p class="nclk">0</p></h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="cat">
+                    <img class="img img-responsive" src="kitty2.jpg">
+                    <h1><p class="nclk">0</p></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    var names = ['mewie', 'randolph'];
+    var i = 0;
+    $('.cat').each(function() {
+        $(this).prepend('<h1>' + names[i++] +'</h1>');
+        $(this).find('img').click(() => {
+            $(this).find('.nclk').text((i, t) => parseInt(t) + 1);
+        });
+    });
+</script>
+
 </html>
