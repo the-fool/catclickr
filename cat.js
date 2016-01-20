@@ -1,5 +1,5 @@
 $(function () {
-    data = {
+    var data = {
         cats: [],
         baseFname: '.jpg',
         cat: function (id, name) {
@@ -22,7 +22,7 @@ $(function () {
         }
     }
 
-    control = {
+    var control = {
         names: ['mewie', 'randolph', 'josephine', 'sammy'],
         activeCat: -1,
         init: function () {
@@ -50,7 +50,7 @@ $(function () {
         }
     }
 
-    listView = {
+    var listView = {
         init: function (namesDict) {
             $.each(namesDict, (i, e) => {
                 var htmlStr = '<li><a href="#" data-id="' +
@@ -68,7 +68,7 @@ $(function () {
         list: $('#list')
     };
 
-    portraitView = {
+    var portraitView = {
         img: $('#image'),
         numClicks: $('#nclicks'),
         name: $('#name'),
