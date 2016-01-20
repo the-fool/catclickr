@@ -6,13 +6,19 @@ $(function () {
             this.name = name;
             this.id = id;
             this.numClicks = 0;
-            this.fname = id + this.baseFname;
+            this.fname = id.toString() + data.baseFname;
         },
         addCat: function (dict) {
             dict = dict instanceof Array ? dict : [dict];
             $.each(dict, (i, e) => {
                 this.cats.push(new this.cat(e.id, e.name));
             });
+        },
+        getCat: function (id) {
+            return this.cats[id];
+        },
+        incrementClick: function (id) {
+            this.getCat(id).numClicks++;
         }
     }
 
@@ -35,7 +41,7 @@ $(function () {
             portraitView.init();
         },
         clickPic: function () {
-            data.incrementClick(activeCat);
+            data.incrementClick(this.activeCat);
             portraitView.setClicks(data.getCat(this.activeCat).numClicks);
         },
         clickLI: function (id) {
@@ -52,7 +58,7 @@ $(function () {
                     e.name + '</a></li>';
                 this.list.prepend(htmlStr);
             });
-            this.list.children('li>a').each(function () {
+            this.list.find('li>a').each(function () {
                 $(this).click(function (e) {
                     control.clickLI($(this).data('id'));
                     e.preventDefault();
@@ -67,7 +73,7 @@ $(function () {
         numClicks: $('#nclicks'),
         name: $('#name'),
         init: function () {
-
+            this.img.click(function() {control.clickPic();});
         },
         render: function (cat) {
             this.img.attr('src', cat.fname);
